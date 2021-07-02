@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'neverball-scorer-ruby'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.licenses    = ['MIT']
   s.summary     = "A scoreboard for neverball."
   s.description = "TUI scoreboard for achievements in neverball"
