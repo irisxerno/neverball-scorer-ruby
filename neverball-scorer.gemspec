@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "TUI scoreboard for achievements in neverball"
   s.authors     = ["Anttu Kaihlavirta"]
   s.email       = 'antsuke42@gmail.com'
-  s.homepage    = 'https://github.com/antsuke42/neverball-scores-ruby'
+  s.homepage    = 'https://github.com/antsuke42/neverball-scorer-ruby'
   s.files       = ["lib/scores.rb", "lib/defaults.txt"]
   s.add_dependency 'listen', '~> 3.1'
   s.executables << 'neverball-scorer-ruby'
