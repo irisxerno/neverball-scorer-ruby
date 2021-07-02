@@ -5,6 +5,7 @@ This script reads your saved scores for neverball and displays a table of all yo
 ## basic usage
 
 `gem install neverball-scorer-ruby`
+
 `neverball-scorer-ruby -s ~/.neverball/Scores/`
 
 * What the project does
