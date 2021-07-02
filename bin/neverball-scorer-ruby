@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+require "optparse"
+require "scores"
+
+sets = ["easy", "medium", "hard"]
+defaults=__dir__+"/../lib/defaults.txt"
+neverball_scores="#{ENV["HOME"]}/.neverball/Scores"
+
+OptionParser.new do |o|
+  o.on("-t","--sets [list]","List of sets", Array) do |v|
+    sets = v
+  end
+  o.on("-s","--scores [dir]","Location of your scores directory") do |v|
+    neverball_scores = File.expand_path v
+  end
+end.parse!
+
+Game.new(sets, defaults, neverball_scores)
+sleep # The folder listener will update the TUI on its own

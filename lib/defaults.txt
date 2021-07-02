@@ -1,0 +1,258 @@
+version 2
+set easy
+36000 0 Hard
+60000 0 Medium
+180000 0 Easy
+359999 1800 Hard
+359999 1200 Medium
+359999 0 Easy
+level 0 1 map-easy/easy.sol
+350 0 Hard
+500 0 Medium
+9000 0 Easy
+2000 10 Hard
+4500 10 Medium
+9000 10 Easy
+9000 18 Hard
+9000 15 Medium
+9000 10 Easy
+level 1 1 map-easy/peasy.sol
+600 0 Hard
+1000 0 Medium
+12000 0 Easy
+2200 10 Hard
+5000 10 Medium
+12000 10 Easy
+12000 20 Hard
+12000 15 Medium
+12000 10 Easy
+level 1 1 map-easy/coins.sol
+300 0 Hard
+400 0 Medium
+6000 0 Easy
+2000 50 Hard
+4000 50 Medium
+6000 50 Easy
+6000 112 Hard
+6000 80 Medium
+6000 50 Easy
+level 1 2 map-easy/fence.sol
+500 0 Hard
+1000 0 Medium
+4500 0 Easy
+750 20 Hard
+1875 20 Medium
+4500 20 Easy
+4500 56 Hard
+4500 35 Medium
+4500 20 Easy
+level 1 1 map-easy/groundbreak.sol
+500 0 Hard
+1500 0 Medium
+12000 0 Easy
+2000 20 Hard
+5500 20 Medium
+12000 20 Easy
+12000 58 Hard
+12000 29 Medium
+12000 20 Easy
+level 1 1 map-easy/goals.sol
+100 0 Hard
+150 0 Medium
+4500 0 Easy
+500 10 Hard
+1500 10 Medium
+4500 10 Easy
+4500 100 Hard
+4500 50 Medium
+4500 10 Easy
+level 1 1 map-easy/goslow.sol
+700 0 Hard
+1500 0 Medium
+9000 0 Easy
+2000 20 Hard
+5250 20 Medium
+9000 20 Easy
+9000 50 Hard
+9000 40 Medium
+9000 20 Easy
+level 1 1 map-easy/slightcurve.sol
+1500 0 Hard
+3000 0 Medium
+9000 0 Easy
+2500 40 Hard
+4500 40 Medium
+9000 40 Easy
+9000 66 Hard
+9000 50 Medium
+9000 40 Easy
+level 1 1 map-easy/slalom.sol
+1000 0 Hard
+2000 0 Medium
+6000 0 Easy
+3000 50 Hard
+4000 50 Medium
+6000 50 Easy
+6000 100 Hard
+6000 75 Medium
+6000 50 Easy
+level 1 1 map-easy/lollipop.sol
+500 0 Hard
+3000 0 Medium
+9000 0 Easy
+3000 50 Hard
+4500 50 Medium
+9000 50 Easy
+9000 208 Hard
+9000 83 Medium
+9000 50 Easy
+level 1 1 map-easy/bumper.sol
+300 0 Hard
+800 0 Medium
+9000 0 Easy
+2000 30 Hard
+5000 30 Medium
+9000 30 Easy
+9000 88 Hard
+9000 50 Medium
+9000 30 Easy
+level 1 1 map-easy/hole.sol
+350 0 Hard
+800 0 Medium
+4500 0 Easy
+1200 20 Hard
+2500 20 Medium
+4500 20 Easy
+4500 34 Hard
+4500 28 Medium
+4500 20 Easy
+level 1 1 map-easy/speedbumps.sol
+1000 0 Hard
+2000 0 Medium
+9000 0 Easy
+3000 40 Hard
+6000 40 Medium
+9000 40 Easy
+9000 82 Hard
+9000 50 Medium
+9000 40 Easy
+level 1 1 map-easy/roundlaby.sol
+6000 0 Hard
+9000 0 Medium
+18000 0 Easy
+9000 50 Hard
+12000 50 Medium
+18000 50 Easy
+18000 180 Hard
+18000 100 Medium
+18000 50 Easy
+level 1 1 map-easy/thwomp2.sol
+1000 0 Hard
+2000 0 Medium
+18000 0 Easy
+2000 50 Hard
+4000 50 Medium
+18000 50 Easy
+18000 155 Hard
+18000 85 Medium
+18000 50 Easy
+level 1 1 map-easy/easyhalfpipe.sol
+500 0 Hard
+1000 0 Medium
+12000 0 Easy
+2500 50 Hard
+6000 50 Medium
+12000 50 Easy
+12000 115 Hard
+12000 60 Medium
+12000 50 Easy
+level 1 1 map-easy/roundcoins.sol
+500 0 Hard
+1000 0 Medium
+12000 0 Easy
+2000 60 Hard
+6000 60 Medium
+12000 60 Easy
+12000 200 Hard
+12000 130 Medium
+12000 60 Easy
+level 1 1 map-easy/corners.sol
+400 0 Hard
+1500 0 Medium
+6000 0 Easy
+400 50 Hard
+4000 50 Medium
+6000 50 Easy
+6000 196 Hard
+6000 146 Medium
+6000 50 Easy
+level 1 1 map-easy/greed.sol
+550 0 Hard
+1000 0 Medium
+9000 0 Easy
+800 24 Hard
+4000 24 Medium
+9000 24 Easy
+9000 220 Hard
+9000 140 Medium
+9000 24 Easy
+level 1 1 map-easy/wakka.sol
+350 0 Hard
+1000 0 Medium
+12000 0 Easy
+3000 80 Hard
+6000 80 Medium
+12000 80 Easy
+12000 280 Hard
+12000 140 Medium
+12000 80 Easy
+level 1 1 map-easy/maze.sol
+1600 0 Hard
+2500 0 Medium
+9000 0 Easy
+3000 10 Hard
+6000 10 Medium
+9000 10 Easy
+9000 40 Hard
+9000 20 Medium
+9000 10 Easy
+level 1 2 map-easy/curved.sol
+500 0 Hard
+1000 0 Medium
+6000 0 Easy
+1000 20 Hard
+3250 20 Medium
+6000 20 Easy
+6000 92 Hard
+6000 50 Medium
+6000 20 Easy
+level 1 1 map-easy/mover.sol
+400 0 Hard
+1100 0 Medium
+6000 0 Easy
+1500 12 Hard
+3500 12 Medium
+6000 12 Easy
+6000 41 Hard
+6000 25 Medium
+6000 12 Easy
+level 1 1 map-easy/bumps.sol
+500 0 Hard
+1000 0 Medium
+12000 0 Easy
+1500 30 Hard
+4500 30 Medium
+12000 30 Easy
+12000 190 Hard
+12000 60 Medium
+12000 30 Easy
+level 1 1 map-easy/mazebump.sol
+8000 0 Hard
+14000 0 Medium
+30000 0 Easy
+9000 60 Hard
+18000 60 Medium
+30000 60 Easy
+30000 120 Hard
+30000 70 Medium
+30000 60 Easy
