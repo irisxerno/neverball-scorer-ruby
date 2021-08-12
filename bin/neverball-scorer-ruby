@@ -3,7 +3,6 @@ require "optparse"
 require "scores"
 
 sets = ["easy", "medium", "hard"]
-defaults=__dir__+"/../lib/defaults.txt"
 neverball_scores="#{ENV["HOME"]}/.neverball/Scores"
 
 OptionParser.new do |o|
@@ -15,7 +14,7 @@ OptionParser.new do |o|
   end
 end.parse!
 
-Game.new(sets, defaults, neverball_scores)
+Game.new(sets, neverball_scores)
 begin
   sleep # The folder listener will update the TUI on its own
 rescue Interrupt # The user probably entered Ctrl-C

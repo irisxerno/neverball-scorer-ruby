@@ -85,7 +85,7 @@ class LevelSet
 
 
     a[1..].each { |e|
-      ll = { name: e[0][1], state: e[0][0], ranks:[] , total: 0 }
+      ll = { state: e[0][0], ranks:[] , total: 0 }
       stats[:maxcompleted] += 1
       stats[:completed] += 1 if ll[:state] == :completed
       1.upto(3) { |i|
@@ -99,25 +99,33 @@ class LevelSet
     }
     return stats
   end
+  # This implementation is temporary until we remove levelset size hardcoded
+  def gen_stats()
+    return {:completed=>0, :maxcompleted=>26, :total=>0, :maxtotal=>77, :challenge=>{:completed=>false, :ranks=>[0, 0], :total=>0}, :levels=>[{:state=>:unlocked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}]}
+  end
   public
   attr_accessor :name, :stats
-  def initialize(name, defaults, neverball_scores)
+  def initialize(name, neverball_scores)
     @name = name
-    @defaults = defaults
     @neverball_scores = neverball_scores
     update
   end
   # update :: reread and count and diff
   def update()
-    f = @defaults
-    puts @defaults
-    f = @neverball_scores+"/#{@name}.txt" if File.exist?(@neverball_scores+"/#{@name}.txt")
-    data = nil
-    File.open(f) { |f|
-      data = parse_scores(f)
-    }
-    stats = count_stats(data)
-    @stats = stats
+    if File.exist?(@neverball_scores+"/#{@name}.txt") then
+      f = @neverball_scores+"/#{@name}.txt"
+      data = nil
+      File.open(f) { |f|
+        data = parse_scores(f)
+      }
+      stats = count_stats(data)
+      File.open("example_stats.data", "w") { |f|
+        f.puts(stats.inspect)
+      }
+      @stats = stats
+    else
+      @stats = gen_stats()
+    end
   end
   def to_pretty_string
     s = StringIO.new
@@ -173,12 +181,11 @@ end
 
 class Game
   attr_accessor :sets, :listener
-  def initialize(sets, defaults, neverball_scores)
-    @defaults = defaults
+  def initialize(sets, neverball_scores)
     @neverball_scores = neverball_scores
     @sets = {}
     sets.each { |s|
-      @sets[s] = LevelSet.new(s, defaults, neverball_scores)
+      @sets[s] = LevelSet.new(s, neverball_scores)
     }
     @listener = Listen.to(@neverball_scores) do |modified, added, removed|
       [modified,added,removed].each { |f|
