@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Anttu Kaihlavirta"]
   s.email       = 'antsuke42@gmail.com'
   s.homepage    = 'https://github.com/antsuke42/neverball-scorer-ruby'
-  s.files       = ["lib/scores.rb", "lib/defaults.txt"]
+  s.files       = ["lib/scores.rb"]
   s.add_dependency 'listen', '~> 3.1'
   s.executables << 'neverball-scorer-ruby'
 end
