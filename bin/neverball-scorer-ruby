@@ -16,4 +16,8 @@ OptionParser.new do |o|
 end.parse!
 
 Game.new(sets, defaults, neverball_scores)
-sleep # The folder listener will update the TUI on its own
+begin
+  sleep # The folder listener will update the TUI on its own
+rescue Interrupt # The user probably entered Ctrl-C
+  exit(0)
+end
