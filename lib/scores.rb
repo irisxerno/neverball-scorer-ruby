@@ -127,7 +127,7 @@ class LevelSet
       @stats = gen_stats()
     end
   end
-  def to_pretty_string
+  def to_pretty_string(reverse)
     s = StringIO.new
     s.write "## #{self.name} "
     if not @stats[:challenge][:completed]
@@ -135,7 +135,7 @@ class LevelSet
     else
       k = []
       ["U", "C"].each_with_index { |r,i|
-        if @stats[:challenge][:ranks][i] == 0
+        if reverse ^ (@stats[:challenge][:ranks][i] == 0)
           k << "."
         else
           k << r
@@ -155,7 +155,7 @@ class LevelSet
         else
           k = []
           ["T", "U", "C"].each_with_index { |r,i|
-            if l[:ranks][i] == 0
+            if reverse ^ (l[:ranks][i] == 0)
               k << "."
             else
               k << r
@@ -181,9 +181,10 @@ end
 
 class Game
   attr_accessor :sets, :listener
-  def initialize(sets, neverball_scores)
+  def initialize(sets, neverball_scores, reverse)
     @neverball_scores = neverball_scores
     @sets = {}
+    @reverse = reverse
     sets.each { |s|
       @sets[s] = LevelSet.new(s, neverball_scores)
     }
@@ -219,7 +220,7 @@ class Game
   def to_pretty_string
     s = StringIO.new
     @sets.each { |set|
-      s.puts set[1].to_pretty_string + "\n"
+      s.puts set[1].to_pretty_string(@reverse) + "\n"
     }
     scm = "#{@stats[:completed]}/#{@stats[:maxcompleted]}"
     spr = "#{Integer((100.0/@stats[:maxcompleted])*@stats[:completed])}"
