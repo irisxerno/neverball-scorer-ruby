@@ -99,9 +99,18 @@ class LevelSet
     }
     return stats
   end
-  # This implementation is temporary until we remove levelset size hardcoded
   def gen_stats()
-    return {:completed=>0, :maxcompleted=>26, :total=>0, :maxtotal=>77, :challenge=>{:completed=>false, :ranks=>[0, 0], :total=>0}, :levels=>[{:state=>:unlocked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}, {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}]}
+    level = {:state=>:locked, :ranks=>[0, 0, 0], :total=>0}
+    stats = {
+      :completed=>0, :maxcompleted=>26, :total=>0, :maxtotal=>77,
+      :challenge=>{:completed=>false, :ranks=>[0, 0], :total=>0},
+      :levels=>[]
+    }
+    1.upto(@size) {
+      stats[:levels] << level.dup
+    }
+    stats[:levels][0][:state] = :unlocked
+    return stats
   end
   public
   attr_accessor :name, :stats
