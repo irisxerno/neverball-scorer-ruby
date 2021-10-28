@@ -7,3 +7,13 @@ This script reads your saved scores for neverball and displays a table of all yo
 `gem install neverball-scorer-ruby`
 
 `neverball-scorer-ruby -s ~/.neverball/Scores/`
+
+![Screenshot of neverball-scorer-ruby TUI](/screenshot.png?raw=true "neverball-scorer-ruby TUI")
+
+`{ /////// }`: Not unlocked
+
+`{ ------- }`: Not completed
+
+`{ T U C   }`: Best time, Best Unlock and All Coins remain uncompleted
+
+`{         }`: All Completed
