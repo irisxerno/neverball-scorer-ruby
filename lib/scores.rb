@@ -105,8 +105,11 @@ class LevelSet
   end
   public
   attr_accessor :name, :stats
-  def initialize(name, neverball_scores)
-    @name = name
+  def initialize(s, neverball_scores)
+    sa = s.split(":",2)
+    @name = sa[0]
+    @size = 25
+    @size = Integer(sa[1]) if sa.length > 1
     @neverball_scores = neverball_scores
     update
   end
@@ -146,6 +149,9 @@ class LevelSet
     0.upto(4) { |i|
       0.upto(4) { |j|
         l = @stats[:levels][i*5+j]
+        if not l
+          next
+        end
         if l[:state] == :locked
           s.write "{ /////// }"
         elsif l[:state] == :unlocked
