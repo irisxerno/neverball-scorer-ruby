@@ -136,9 +136,9 @@ class LevelSet
       k = []
       ["U", "C"].each_with_index { |r,i|
         if @stats[:challenge][:ranks][i] == 0
-          k << r
-        else
           k << "."
+        else
+          k << r
         end
       }
       s.puts "{ #{'%-4.4s' % k.join(" ")} }"
@@ -156,9 +156,9 @@ class LevelSet
           k = []
           ["T", "U", "C"].each_with_index { |r,i|
             if l[:ranks][i] == 0
-              k << r
-            else
               k << "."
+            else
+              k << r
             end
           }
           s.write "{ #{'%-7.7s' % k.join(" ")} }"
