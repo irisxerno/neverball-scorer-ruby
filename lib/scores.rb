@@ -1,5 +1,6 @@
 require "listen"
 require "psych"
+require "time"
 
 # executes `clear`
 CLEAR=%x{clear}
@@ -9,6 +10,19 @@ def clear
 end
 
 DIFFICULTIES=["Hard", "Medium", "Easy"]
+
+class Float
+  def to_s_timer
+    i = self
+    hours = (i/3600).to_i
+    i = i.modulo(3600)
+    minutes = (i/60).to_i
+    i = i.modulo(60)
+    seconds = i.to_i
+    dec = (i.modulo(1)*1000).to_i
+    "%02d:%02d:%02d.%03d" % [hours, minutes, seconds, dec]
+  end
+end
 
 class LevelSet
   private
@@ -196,10 +210,22 @@ end
 
 class Game
   attr_accessor :sets, :listener
-  def initialize(sets, neverball_scores, reverse)
+  def initialize(sets, neverball_scores, reverse, timer)
     @neverball_scores = neverball_scores
     @sets = {}
     @reverse = reverse
+    @timer = false
+    @timer_now = Time.now.to_f
+    if timer
+      @timerfile = timer
+      if File.file? timer
+        File.open(timer) { |f|
+          @timer = Float(f.read.chomp)
+        }
+      else
+        @timer = true
+      end
+    end
     sets.each { |s|
       @sets[s] = LevelSet.new(s, neverball_scores)
     }
@@ -222,6 +248,15 @@ class Game
     @listener.start
   end
   def update
+    if @timer == true
+      puts "press enter to start timer..."
+      STDIN.readline
+      @timer_now = Time.now.to_f
+      @timer = @timer_now
+      File.open(@timerfile, "w") { |f|
+        f.puts(@timer.inspect)
+      }
+    end
     stats = { completed: 0, maxcompleted: 0, total: 0, maxtotal: 0 }
     @sets.each { |set|
       st = set[1].stats
@@ -234,6 +269,9 @@ class Game
   end
   def to_pretty_string
     s = StringIO.new
+    if @timer
+      s.write("\n  [ %s ]\n\n" % (@timer_now-@timer).to_s_timer)
+    end
     @sets.each { |set|
       s.puts set[1].to_pretty_string(@reverse) + "\n"
     }

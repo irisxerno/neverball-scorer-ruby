@@ -5,6 +5,7 @@ require "scores"
 sets = ["easy", "medium", "hard"]
 neverball_scores="#{ENV["HOME"]}/.neverball/Scores"
 reverse = true
+timer = false
 
 OptionParser.new do |o|
   o.on("-t","--sets [list]","List of sets", Array) do |v|
@@ -16,9 +17,12 @@ OptionParser.new do |o|
   o.on("-r", "--noreverse", "makes the TUI display letters for collected achievements") do |v|
     reverse = !v
   end
+  o.on("-i", "--timer [file]", "use a timer") do |v|
+    timer = v
+  end
 end.parse!
 
-Game.new(sets, neverball_scores, reverse)
+Game.new(sets, neverball_scores, reverse, timer)
 begin
   sleep # The folder listener will update the TUI on its own
 rescue Interrupt # The user probably entered Ctrl-C
