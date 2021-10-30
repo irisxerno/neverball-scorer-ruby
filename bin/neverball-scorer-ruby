@@ -4,7 +4,7 @@ require "scores"
 
 sets = ["easy", "medium", "hard"]
 neverball_scores="#{ENV["HOME"]}/.neverball/Scores"
-reverse = true
+reverse = false
 timer = false
 
 OptionParser.new do |o|
@@ -14,8 +14,8 @@ OptionParser.new do |o|
   o.on("-s","--scores [dir]","Location of your scores directory") do |v|
     neverball_scores = File.expand_path v
   end
-  o.on("-r", "--noreverse", "makes the TUI display letters for collected achievements") do |v|
-    reverse = !v
+  o.on("-r", "--reverse", "makes the TUI display letters for missing achievements") do |v|
+    reverse = v
   end
   o.on("-i", "--timer [file]", "use a timer") do |v|
     timer = v

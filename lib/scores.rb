@@ -256,6 +256,8 @@ class Game
       File.open(@timerfile, "w") { |f|
         f.puts(@timer.inspect)
       }
+    elsif @timer
+      @timer_now = Time.now.to_f
     end
     stats = { completed: 0, maxcompleted: 0, total: 0, maxtotal: 0 }
     @sets.each { |set|
