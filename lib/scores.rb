@@ -179,8 +179,6 @@ class LevelSet
           s.write "{ /////// }"
         elsif l[:state] == :unlocked
           s.write "{ _______ }"
-        elsif l[:total] >= 3
-          s.write "{         }"
         else
           k = []
           ["T", "U", "C"].each_with_index { |r,i|
